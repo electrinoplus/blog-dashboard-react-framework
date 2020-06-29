@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import EditPostContainer from './EditPostContainer';
+
 const SinglePostContainer = () => {
     const { id } = useParams();
 
@@ -28,7 +30,11 @@ const SinglePostContainer = () => {
             { (fetchStatus === 'IDLE' || fetchStatus === 'STARTED') && 'Loading...' }
             { fetchStatus === 'FAILED' && fetchError }
             { fetchStatus === 'SUCCEED' && (
-                JSON.stringify(post)
+                <EditPostContainer
+                    title={post.title}
+                    brief={post.brief}
+                    detailed={post.detailed}
+                />
             )}
         </div>
     )

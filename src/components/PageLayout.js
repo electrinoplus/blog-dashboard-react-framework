@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import UserContext from '../context/userContext';
 
 const PageLayout = (props) => {
+    const user = useContext(UserContext);
+
     return (
         <>
             <header>
@@ -11,10 +14,14 @@ const PageLayout = (props) => {
                             <NavLink to="/">Posts</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/about">About</NavLink>
+                            <NavLink to="/profile">Profile</NavLink>
                         </li>
                     </ul>
                 </nav>
+
+                <div>
+                    {user.first_name}
+                </div>
             </header>
             <main>
                 {props.children}

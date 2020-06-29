@@ -23,7 +23,7 @@ const Post = (props) => {
                 {brief}
             </p>
 
-            <Link to={match.path + id}>Details</Link>
+            <Link to={match.path + id}>Edit</Link>
         </div>
     )
 };
